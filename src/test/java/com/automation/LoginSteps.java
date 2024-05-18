@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -17,10 +17,10 @@ public class LoginSteps {
 
     @Before
     public void setUp() {
-        // Set path to msedgedriver
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\novia\\msedgedriver.exe");
-        // Initialize EdgeDriver
-        driver = new EdgeDriver();
+        // Set path to chromedriver
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\novia\\chromedriver.exe");
+        // Initialize ChromeDriver
+        driver = new ChromeDriver();
     }
 
     @Given("I am on the SauceDemo login page")
@@ -50,27 +50,10 @@ public class LoginSteps {
         assertEquals(expectedUrl, actualUrl);
     }
 
-    @Then("I should see an error message")
-    public void i_should_see_an_error_message() {
+    @Then("I should see an error message {string}")
+    public void i_should_see_an_error_message(String expectedErrorMessage) {
         WebElement errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']"));
         assertTrue(errorMessage.isDisplayed());
-        String expectedErrorMessage = "Epic sadface: Username and password do not match any user in this service";
-        assertEquals(expectedErrorMessage, errorMessage.getText());
-    }
-
-    @Then("I should see an error message Password is required")
-    public void i_should_see_an_error_message_Password_is_required() {
-        WebElement errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']"));
-        assertTrue(errorMessage.isDisplayed());
-        String expectedErrorMessage = "Epic sadface: Password is required";
-        assertEquals(expectedErrorMessage, errorMessage.getText());
-    }
-
-    @Then("I should see an error message Username is required")
-    public void i_should_see_an_error_message_Username_is_required() {
-        WebElement errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']"));
-        assertTrue(errorMessage.isDisplayed());
-        String expectedErrorMessage = "Epic sadface: Username is required";
         assertEquals(expectedErrorMessage, errorMessage.getText());
     }
 }
