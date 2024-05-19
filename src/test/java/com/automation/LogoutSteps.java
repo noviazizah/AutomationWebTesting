@@ -42,13 +42,13 @@ public class LogoutSteps {
         loginButton.click();
     }
 
-    @When("I click the menu button")
+    @When("I click on the menu button")
     public void i_click_the_menu_button() {
         WebElement menuButton = driver.findElement(By.id("react-burger-menu-btn"));
         menuButton.click();
     }
 
-    @When("I click the logout button")
+    @When("I click on the logout button")
     public void i_click_the_logout_button() {
         WebElement logoutButton = driver.findElement(By.id("logout_sidebar_link"));
         logoutButton.click();
