@@ -23,7 +23,7 @@ public class LogoutSteps {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ys250\\msedgedriver.exe");
         // Initialize ChromeDriver
         // driver = new ChromeDriver();
-        driver = new EdgeDriver();
+        driver = new EdgeDriver(); 
     }
 
     @Given("I am logged in to the application")
