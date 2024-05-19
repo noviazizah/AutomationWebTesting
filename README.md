@@ -40,45 +40,37 @@ Langkah-langkah untuk menginstal proyek ini pada lingkungan lokal:
 ## Struktur Folder Project
 
 ```
-
-```
-
 AutomationWebTesting/
 ├── src
-│ ├── main
-│ │ └── java
-│ │ └── com
-│ │ └── automation
-│ │ └── Main.java
-│ ├── test
-│ │ ├── java
-│ │ │ └── com
-│ │ │ └── automation
-│ │ │ ├── LoginSteps.java
-│ │ │ ├── LogoutSteps.java
-│ │ │ └── TestRunner.java
-│ │ └── resources
-│ │ ├── login.feature
-│ │ └── logout.feature
+│   ├── main
+│   │   └── java
+│   │       └── com
+│   │           └── automation
+│   │               └── Main.java
+│   ├── test
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── automation
+│   │   │           ├── LoginSteps.java
+│   │   │           ├── LogoutSteps.java
+│   │   │           └── TestRunner.java
+│   │   └── resources
+│   │       ├── login.feature
+│   │       └── logout.feature
 ├── target
-│ ├── classes
-│ │ └── com
-│ │ └── automation
-│ │ └── Main.class
-│ ├── maven-status
-│ ├── surefire-reports
-│ ├── test-classes
-│ │ └── com
-│ │ ├── login.feature
-│ │ └── logout.feature
-│ │  
-│ └── cucumber.html
+│   ├── classes
+│   │   └── com
+│   │       └── automation
+│   │           └── Main.class
+│   ├── maven-status
+│   ├── surefire-reports
+│   ├── test-classes
+│   │   └── com
+│   │       ├── login.feature
+│   │       └── logout.feature
+│   │
+│   └── cucumber.html
 ├── chromedriver.exe
 ├── pom.xml
 └── README.md
-
-```
-
-
-
 ```
