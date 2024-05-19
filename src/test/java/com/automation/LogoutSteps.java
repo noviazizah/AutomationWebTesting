@@ -13,7 +13,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginSteps {
+public class LogoutSteps {
     private WebDriver driver;
 
     @Before
@@ -26,37 +26,38 @@ public class LoginSteps {
         driver = new EdgeDriver();
     }
 
-    @Given("I am on the SauceDemo login page")
-    public void i_am_on_the_sauce_demo_login_page() {
-        // Navigate to the URL
+    @Given("I am logged in to the application")
+    public void i_am_logged_in_to_the_application() {
+        // Navigate to the login page
         driver.get("https://www.saucedemo.com/");
-    }
 
-    @When("I enter username {string} and password {string}")
-    public void i_enter_username_and_password(String username, String password) {
+        // Enter username and password
         WebElement usernameField = driver.findElement(By.id("user-name"));
         WebElement passwordField = driver.findElement(By.id("password"));
-        usernameField.sendKeys(username);
-        passwordField.sendKeys(password);
-    }
+        usernameField.sendKeys("standard_user");
+        passwordField.sendKeys("secret_sauce");
 
-    @When("I click the login button")
-    public void i_click_the_login_button() {
+        // Click the login button
         WebElement loginButton = driver.findElement(By.id("login-button"));
         loginButton.click();
     }
 
-    @Then("I should be redirected to the products page")
-    public void i_should_be_redirected_to_the_products_page() {
-        String expectedUrl = "https://www.saucedemo.com/inventory.html";
-        String actualUrl = driver.getCurrentUrl();
-        assertEquals(expectedUrl, actualUrl);
+    @When("I click the menu button")
+    public void i_click_the_menu_button() {
+        WebElement menuButton = driver.findElement(By.id("react-burger-menu-btn"));
+        menuButton.click();
     }
 
-    @Then("I should see an error message {string}")
-    public void i_should_see_an_error_message(String expectedErrorMessage) {
-        WebElement errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']"));
-        assertTrue(errorMessage.isDisplayed());
-        assertEquals(expectedErrorMessage, errorMessage.getText());
+    @When("I click the logout button")
+    public void i_click_the_logout_button() {
+        WebElement logoutButton = driver.findElement(By.id("logout_sidebar_link"));
+        logoutButton.click();
+    }
+
+    @Then("I should be redirected to the login page")
+    public void i_should_be_redirected_to_the_login_page() {
+        String expectedUrl = "https://www.saucedemo.com/";
+        String actualUrl = driver.getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
     }
 }
