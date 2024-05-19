@@ -5,8 +5,7 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-// import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -19,12 +18,11 @@ public class LoginSteps {
     @Before
     public void setUp() {
         // Set path to chromedriver
-        // System.setProperty("webdriver.chrome.driver", "C:\\Users\\novia\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ys250\\msedgedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\novia\\chromedriver.exe");
         // Initialize ChromeDriver
-        // driver = new ChromeDriver();
-        driver = new EdgeDriver();
+        driver = new ChromeDriver();
     }
+    
 
     @Given("I am on the SauceDemo login page")
     public void i_am_on_the_sauce_demo_login_page() {
